@@ -1,0 +1,90 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           NanoProbe
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/vx-sec/NanoProbe#readme>
+homepage:       https://github.com/vx-sec/NanoProbe#readme
+bug-reports:    https://github.com/vx-sec/NanoProbe/issues
+author:         Suren Manukan
+maintainer:     suren.manukyan@vxsoft.com
+copyright:      VXSoft LLC
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/vx-sec/NanoProbe
+
+library
+  exposed-modules:
+      Scanner
+      Server
+  other-modules:
+      Paths_NanoProbe
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , conduit-extra
+    , docker
+    , hashable
+    , json-rpc
+    , monad-logger
+    , mtl
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+executable NanoProbe
+  main-is: Main.hs
+  other-modules:
+      Paths_NanoProbe
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      NanoProbe
+    , aeson
+    , ansi-terminal
+    , base >=4.7 && <5
+    , conduit-extra
+    , docker
+    , hashable
+    , json-rpc
+    , monad-logger
+    , mtl
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+test-suite NanoProbe-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_NanoProbe
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      NanoProbe
+    , aeson
+    , base >=4.7 && <5
+    , conduit-extra
+    , docker
+    , hashable
+    , json-rpc
+    , monad-logger
+    , mtl
+    , text
+    , unordered-containers
+  default-language: Haskell2010
